@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Empleado Details</title>
+</head>
+<body>  
+<section layout:fragment="header">
+    <h1>
+        Empleado Detail
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Empleado Details</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Empleado Detail</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <!--<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">-->
+
+                <form th:action="@{/empleado/save}" th:object="${empleado}" method="post" class="form-horizontal">
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Empleado Id</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  readonly="readonly" th:field="*{id}" placeholder="Product ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Departamento:<span>*</span></label>
+                            <div class="col-sm-10">
+                                <select class="form-control" th:field="*{id_departamento}">
+                                    <option value="">Select...</option>
+                                    <option th:each="departamento : ${departamento}" th:value="${departamento.id}" th:utext="${departamento.nombre}"/>
+                                </select>
+                                <p class="text-red" th:if="${#fields.hasErrors('id_departamento')}" th:errors="*{id_departamento}"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nif</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  th:field="*{nif}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{nombre}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Apellido</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{apellido}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ciudad</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{ciudad}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Direccion</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{direccion}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Telefono</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{telefono}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Fecha nacimiento</label>
+                            <div class="col-sm-10">
+                                <input type="date"
+                                       class="form-control" th:field="*{fecha_nacimiento}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('fecha_nacimiento')}" th:errors="*{fecha_nacimiento}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer center">
+                        <a th:href="@{/empleado/list}">
+                            <button type="button" class="btn btn-default"><i class="fa fa-right"></i> Cancel</button>
+                        </a>
+                        <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Save</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+                <!--</div>-->
+
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+    <script>
+    </script>
+</th:block>
+
+</body>
+
+</html>
