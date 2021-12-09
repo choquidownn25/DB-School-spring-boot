@@ -19,7 +19,6 @@ Realiza proyectó de autenticación de usuario, ello se realiza un rol y envíe 
 - JPA
 - Validation
 - Users, Roles and Memberships
-- MySQl
 
 
 # Development Tools & Environment
