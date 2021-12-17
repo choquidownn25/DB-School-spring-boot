@@ -1,17 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
 <head>
     <title>Uploading file</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Uploading file</h1>
 
-<form action="/doUpload" method="post" enctype="multipart/form-data">
-    <label>Enter file</label>
-    <input type="file" name="file">
-    <button type="submit">Upload</button>
-</form>
+<section layout:fragment="header">
+    <h1>
+        Uploading file
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Departamento Details</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Departamento Detail</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form action="/doUpload" method="post" enctype="multipart/form-data">
+                    <label class="col-sm-2 control-label">Enter file</label>
+                    <div class="col-sm-10">
+                    <input type="file" class="form-control" name="file"  placeholder="file">
+                    </div>
+                    <div class="box-footer center">
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Upload</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+    <script>
+    </script>
+</th:block>
+
+
 </body>
 </html>
