@@ -5,6 +5,7 @@ import com.proyecto.account.model.Departamento;
 import com.proyecto.account.model.Empleado;
 import com.proyecto.account.repository.IEmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +29,9 @@ public class EmpleadoService implements IServiceGenericEmpleado {
 
     @Override
     public Empleado save(Empleado entity) throws Exception {
+        if (entity.getNombre().trim().isEmpty()) {
+            throw new UsernameNotFoundException("Nombre is empty");
+        }
         if(entity != null)
             return repository.save(entity);
         else

@@ -26,9 +26,25 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img th:src="${logoImgPath}" alt="Java Icon" style="width:100px;height:110px;">
+                        </div>
+                        <div class="col-sm-6">
+                            <label hidden></label>
+                            <h4 th:text="${logoImgScale}" hidden>......</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <label hidden></label>
+                            <h4 th:text="${reportFileName}" hidden>......</h4>
+                        </div>
+                    </div>
                     <div class="box-footer center">
                         <a th:href="@{/empleado/add}">
                             <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add new</button>
+                        </a>
+                        <a th:href="@{/empleado/report}">
+                            <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Report</button>
                         </a>
                         <!--<form th:action="@{/product/list}" method="get">
                             <input type="search" th:value="${param.search}" name='search' placeholder="search">
@@ -51,7 +67,7 @@
                     </div>
 
                     <!--<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">-->
-                        <div class="row">
+                    <div class="row">
                             <div class="col-sm-12">
                                 <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
                                        aria-describedby="example1_info">
@@ -92,15 +108,6 @@
                         </div>
                     <!--</div>-->
 
-                    <!--<div class="dataTables_paginate paging_bootstrap">
-                        <ul th:if="${listProducts.totalPages > 0}" th:each="pageNumber : ${pageNumbers}"  class="pagination">
-                            <li th:class="${pageNumber==listProducts.number + 1} ? active">
-                                <a th:href="@{/product/list(search=${param.search},size=${listProducts.size}, page=${pageNumber})}"
-                                   th:text=${pageNumber}>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>-->
 
                 </div>
                 <!-- /.box-body -->
