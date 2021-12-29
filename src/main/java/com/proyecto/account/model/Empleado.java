@@ -20,9 +20,6 @@ public class Empleado {
     @NotNull(message = "Select Product type!")
     private Integer id_departamento;
 
-    /*@NotEmpty(message = "nif can't be empty!")
-    @Column(name = "nif")
-    private String nif;*/
 
     @NotEmpty(message = "Name can't be empty!")
     @Column(name = "nombre")
